@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		<action name="index">
+			<result type="redirectAction">
+				<param name="actionName">insertResume</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="insertResume" class="com.resume.InsertResumeAction" method="insertResume">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<action name="displayResume" class="com.resume.displayResumeAction">
+			<result name="error">/error.jsp</result>
+			<result name="success">/displayResume.jsp</result>
+		</action>
+		<action name="display" class="com.resume.DisplayAction">
+			<result name="error">/error.jsp</result>
+			<result name="success">/updateResume.jsp</result>
+		</action>
+		<action name="updateResume" method="updateResume" class="com.resume.UpdateResumeAction">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<action name="deleteResume" class="com.resume.DeleteResumeAction" method="deleteResume">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">displayResume</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="insertPass" class="com.pass.InsertPassAction" method="insertPass">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="insertCom_resume" class="com.com_resume.InsertCom_resumeAction" method="insertCom_resume">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="updateUser" method="updateUser" class="com.user.UpdateUserAction">
+			<result name="error">/error.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="displayUser" class="com.user.DisplayUser">
+			<result name="error">/error.jsp</result>
+			<result name="success">/updateUser.jsp</result>
+		</action>
+		
+		<action name="selectState" class="com.resume.SelectState">
+			<result name="error">/error.jsp</result>
+			<result name="success">/selectState.jsp</result>
+		</action>
+		
+		<!-- <action name="displayAllJobs" class="com.job.DisplayAllJobsAction">
+			<result name="error">/error.jsp</result>
+			<result name="success">/displayResume.jsp</result>
+		</action> -->
+			
+	</package>
+
+	<!-- Add packages here -->
+
+</struts>

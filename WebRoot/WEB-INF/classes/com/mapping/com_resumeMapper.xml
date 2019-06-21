@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapping.com_resumeMapper">
+
+    <!-- 添加投送记录  -->
+    <insert id="insert" parameterType="com.com_resume.Com_resume" >
+    INSERT INTO com_resume (jobid,passid,introduce,workedfor,workedtime,graduatedfrom,prize)
+    VALUES(#{jobid},#{passid},#{introduce},#{workedfor},#{workedtime},#{graduatedfrom},#{prize})
+	</insert>
+
+</mapper>

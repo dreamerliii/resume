@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapping.userMapper">
+    <select id="select" parameterType="int" resultType="com.user.User">
+        SELECT * FROM users WHERE id=#{id}
+    </select>
+    
+    <update id="update" parameterType="com.user.User">
+    	UPDATE users SET name=#{name}, age=#{age}, location=#{location}, tel=#{tel}, email=#{email},
+    	want1=#{want1},want2=#{want2},want3=#{want3} WHERE id =#{id}
+    </update>
+</mapper>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapping.jobMapper">
+	<select id="selectall" resultType="com.job.Job">
+	SELECT a.id,a.name,b.jobname, b.id As jid FROM company AS a,job AS b WHERE a.id=b.comid order by a.id
+	</select>
+</mapper>

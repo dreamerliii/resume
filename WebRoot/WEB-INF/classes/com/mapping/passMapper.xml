@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapping.passMapper">
+
+    <!-- 添加投送记录  -->
+    <insert id="insert" parameterType="com.pass.Pass" >
+    INSERT INTO pass (resumeid,jid,passtime,state)
+    VALUES(#{resumeid},#{jid},#{passtime},#{state})
+	</insert>
+	
+	<select id="select" resultType="int">
+        SELECT MAX(id) FROM pass
+    </select>
+    
+    <select id="selectall" parameterType="com.pass.Pass"  resultType="com.pass.Pass">
+    	SELECT * from pass WHERE resumeid=#{resumeid},jid=#{jid}
+    </select>
+    
+    
+
+</mapper>
